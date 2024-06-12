@@ -28,8 +28,8 @@ ToDoList is a comprehensive task management application that allows users to reg
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/todolist.git
-   cd todolist
+   git clone https://github.com/anton3x/ToDoList.git
+   cd ToDoList
 
 2. Set up the database:
    - Ensure you have SQL Server installed and running.
