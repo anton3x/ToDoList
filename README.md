@@ -29,15 +29,15 @@ ToDoList is a comprehensive task management application that allows users to reg
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/todolist.git
-   cd todolist
+   cd todolist```
 
 2. Set up the database:
-   ```Ensure you have SQL Server installed and running.
+   Ensure you have SQL Server installed and running.
    Create a database and run the provided SQL scripts to set up the necessary tables.
 
 3. Update the connection string:
    ```In App.config, update the connection string to point to your SQL Server database.
 
 4. Build the application:
-   ```Open the project in Visual Studio.
+   Open the project in Visual Studio.
    Build the solution to restore the necessary packages and compile the code.
