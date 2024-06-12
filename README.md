@@ -32,12 +32,12 @@ ToDoList is a comprehensive task management application that allows users to reg
    cd todolist```
 
 2. Set up the database:
-  Ensure you have SQL Server installed and running.
-  Create a database and run the provided SQL scripts to set up the necessary tables.
-  Update the connection string:
+   Ensure you have SQL Server installed and running.
+   Create a database and run the provided SQL scripts to set up the necessary tables.
 
-3. In App.config or Web.config, update the connection string to point to your SQL Server database.
-  Build the application:
+3. Update the connection string:
+   In App.config, update the connection string to point to your SQL Server database.
 
-4. Open the project in Visual Studio.
-  Build the solution to restore the necessary packages and compile the code.
+4. Build the application:
+   Open the project in Visual Studio.
+   Build the solution to restore the necessary packages and compile the code.
