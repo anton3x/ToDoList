@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush Color="White" x:Key="ModoCor"/>
+    <SolidColorBrush Color="#dcdde1" x:Key="Backdrop"/>
+    <SolidColorBrush Color="#FF707070" x:Key="TextoClaro"/>
+    <SolidColorBrush Color="Black" x:Key="TextoPrincipal"/>
+    <SolidColorBrush Color="Black" x:Key="TextoSecundario"/>
+    <SolidColorBrush Color="#FFFFFF" x:Key="BackgroundPerfilView"/>
+    <SolidColorBrush Color="#FFFFFF" x:Key="TimePickers"/>
+    <SolidColorBrush Color="#efeeef" x:Key="NavigationView"/>
+    <SolidColorBrush Color="#fff" x:Key="Card"/>
+    <BitmapImage x:Key="IconTarefas" UriSource="pack://application:,,,/Dados/iconTarefasTotais.png" />
+    <BitmapImage x:Key="IconHoje" UriSource="pack://application:,,,/Dados/iconHoje.png" />
+    <BitmapImage x:Key="IconSemana" UriSource="pack://application:,,,/Dados/iconSemana.png" />
+    <BitmapImage x:Key="IconPoucoImportante" UriSource="pack://application:,,,/Dados/iconPoucoImportante.png" />
+    <BitmapImage x:Key="IconNormal" UriSource="pack://application:,,,/Dados/iconNormal.png" />
+    <BitmapImage x:Key="IconImportante" UriSource="pack://application:,,,/Dados/iconImportante.png" />
+    <BitmapImage x:Key="IconPrioritaria" UriSource="pack://application:,,,/Dados/iconPrioritaria.png" />
+    <BitmapImage x:Key="IconNovaTarefa" UriSource="pack://application:,,,/Dados/iconNovaTarefa.png" />
+    <BitmapImage x:Key="IconCentralAlertas" UriSource="pack://application:,,,/Dados/iconCentralAlertas.png" />
+</ResourceDictionary>

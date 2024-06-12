@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="Projeto.AlertaDesign"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Projeto"
+             xmlns:models="clr-namespace:Projeto.Models"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             mc:Ignorable="d"
+             d:DesignHeight="70" d:DesignWidth="1050">
+
+    <UserControl.Resources>
+        <models:TiposAlertaConverter x:Key="TiposAlertaConverter"/>
+        <local:MessageConverter x:Key="MessageConverter"/>
+    </UserControl.Resources>
+
+    <Grid>
+        <Border BorderBrush="{DynamicResource TextoPrincipal}" BorderThickness="1" CornerRadius="10" Background="{DynamicResource Card}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid>
+                <!-- Adiciona margem para evitar o corte das bordas -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="0.18*"/>
+                    <ColumnDefinition Width="0.25*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Viewbox Margin="10">
+                        <Ellipse Width="50" Height="50">
+                            <Ellipse.Style>
+                                <Style TargetType="Ellipse">
+                                    <Setter Property="Fill" Value="Green"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Desligado}" Value="True">
+                                            <Setter Property="Fill" Value="Red"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Ellipse.Style>
+                        </Ellipse>
+                    </Viewbox>
+                </Grid>
+
+                <Grid Grid.Column="1" Margin="10" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBlock Text="{DynamicResource txtAlerta}" FontSize="35" FontFamily="Balsamiq Sans" Foreground="{DynamicResource TextoPrincipal}"/>
+                        <TextBlock Text="{Binding Id}" FontSize="35" HorizontalAlignment="Left" FontFamily="Balsamiq Sans" Foreground="{DynamicResource TextoPrincipal}" />
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="{Binding Data_Hora, StringFormat={}{0:dd/MM/yyyy}}" FontSize="18" HorizontalAlignment="Center" Foreground="{DynamicResource TextoSecundario}" FontFamily="Balsamiq Sans"/>
+                        <TextBlock Text=" - " FontSize="18" HorizontalAlignment="Center" Foreground="{DynamicResource TextoSecundario}" FontFamily="Balsamiq Sans"/>
+                        <TextBlock Text="{Binding Data_Hora, StringFormat={}{0:HH:mm}}" FontSize="18" HorizontalAlignment="Center" Foreground="{DynamicResource TextoSecundario}" FontFamily="Balsamiq Sans"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Column="3">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="70,0,0,0">
+                        <TextBlock Text="{Binding Mensagem,Converter={StaticResource MessageConverter}}" FontSize="20" Foreground="{DynamicResource TextoSecundario}" FontFamily="Balsamiq Sans"/>
+                        <TextBlock Text="{Binding Tipos, Converter={StaticResource TiposAlertaConverter}}" FontSize="20" Foreground="{DynamicResource TextoSecundario}" FontFamily="Balsamiq Sans"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Column="4">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0">
+                        <Viewbox>
+                            <ui:Button x:Name="btnEliminarAlerta" Margin="2,8,0,8" Height="22" Width="22"
+                               CornerRadius="30" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" Icon="{ui:SymbolIcon Delete12}" FontSize="18" Click="BtnEliminarAlerta_Onclick">
+                                <ui:Button.ToolTip>
+                                    <ToolTip Content="{DynamicResource tooltipEliminarAlerta}" FontWeight="Bold"/>
+                                </ui:Button.ToolTip>
+                            </ui:Button>
+                        </Viewbox>
+                        <Viewbox>
+                            <ui:Button x:Name="btnConfiguracoesAlerta" Margin="2,8,0,8" Height="22" Width="22"
+                               CornerRadius="30" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" Icon="{ui:SymbolIcon Settings16}" FontSize="20" Click="BtnConfiguracoesAlerta_Onclick">
+                                <ui:Button.ToolTip>
+                                    <ToolTip Content="{DynamicResource tooltipConfiguracoesAlerta}" FontWeight="Bold"/>
+                                </ui:Button.ToolTip>
+                            </ui:Button>
+                        </Viewbox>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+
+
+
+</UserControl>

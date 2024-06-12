@@ -1,0 +1,215 @@
+﻿<Window x:Class="Projeto.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
+        xmlns:local="clr-namespace:Projeto"
+        mc:Ignorable="d"
+        Loaded="MainWindow_OnLoaded"
+        Closing="MainWindow_OnClosing"
+        WindowStartupLocation="CenterScreen"
+        Title="ToDoList" Height="800" Width="1550" MinWidth="1395" MinHeight="675" FontSize="50"
+        xmlns:System="clr-namespace:System;assembly=System.Runtime">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
+        <Style x:Key="TextBoxStyle1" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border CornerRadius="20" x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True" Padding="12,0,12,0">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="MyFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Control}">
+                        <Grid Margin="8">
+                            <Ellipse
+                                Name="r1"
+                                Stroke="Black"
+                                StrokeDashArray="2 2"
+                                StrokeThickness="1"/>
+                            <Border
+                                Name="border"
+                                Width="{TemplateBinding ActualWidth}"
+                                Height="{TemplateBinding ActualHeight}"
+                                BorderThickness="1"
+                                CornerRadius="2"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <System:String x:Key="menuItemSair">Sair</System:String>
+
+    </Window.Resources>
+
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Background="{DynamicResource NavigationView}">
+            <ui:NavigationView x:Name="RootNavigation" PaneOpened="RootNavigation_PaneOpened" PaneClosed="RootNavigation_PaneClosed" IsBackButtonVisible="Collapsed" FontFamily="Balsamiq Sans" Background="#1E1E1E">
+                <ui:NavigationView.PaneHeader>
+                    <StackPanel Name="stckPane" Orientation="Horizontal" Margin="1,0,0,0" HorizontalAlignment="Stretch">
+                        <ui:Image CornerRadius="30" Width="80" Height="80" Name="imagePerfil" Source="Dados/noPhoto.jpg" VerticalAlignment="Center" Stretch="Fill" BorderBrush="White" BorderThickness="4" />
+                        <StackPanel Orientation="Vertical" Margin="10,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Name="nomePerfil" Text="nomePerfil" FontWeight="Bold" FontSize="20" Width="190" FontFamily="Balsamiq Sans" Foreground="{DynamicResource TextoPrincipal}"/>
+                            <TextBlock Name="emailPerfil" Text="emailPerfil" FontSize="14" Width="190" TextWrapping="Wrap" FontFamily="Balsamiq Sans" Foreground="{DynamicResource TextoSecundario}"/>
+                        </StackPanel>
+                        <ui:Button Name="btnPerfilMain" HorizontalAlignment="Right" Width="30" Height="30" Padding="0" BorderThickness="0" Click="BtnPerfilMain_OnClick">
+                            <ui:SymbolIcon Symbol="Settings16" FontSize="28" />
+                            <ToolTipService.ToolTip>
+                                <ToolTip x:Name="perfilToolTip" Content="{DynamicResource profileConfigurationsToolTipText}" FontWeight="Bold" Foreground="{DynamicResource TextoPrincipal}"/>
+                            </ToolTipService.ToolTip>
+                        </ui:Button>
+                    </StackPanel>
+                </ui:NavigationView.PaneHeader>
+                <ui:NavigationView.MenuItems>
+                    <ui:NavigationViewItemSeparator Height="0" Visibility="Hidden" />
+                    <ui:NavigationViewItem Name="ItemTarefas" Content="{DynamicResource buttonTarefasName}" FontWeight="Bold" VerticalContentAlignment="Center" Click="btnTarefasTotais_Click" IsExpanded="False">
+                        <ui:NavigationViewItem.Icon>
+                            <ui:ImageIcon x:Name="iconTarefasTotais" Source="{DynamicResource IconTarefas}" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
+                        </ui:NavigationViewItem.Icon>
+                        <ToolTipService.ToolTip>
+                            <ToolTip x:Name="ItemTarefasToolTip" Content="{DynamicResource buttonTarefasName}" Visibility="Collapsed" Foreground="{DynamicResource TextoPrincipal}"/>
+                        </ToolTipService.ToolTip>
+                    </ui:NavigationViewItem>
+                    <ui:NavigationViewItem Content="{DynamicResource btnTarefasHojeName}" FontWeight="Bold" ClickMode="Press" Click="btnTarefasHoje_Click" FontFamily="Balsamiq Sans">
+                        <ui:NavigationViewItem.Icon>
+                            <ui:ImageIcon Source="{DynamicResource IconHoje}" Width="35" Height="35" RenderOptions.BitmapScalingMode="Fant"/>
+                        </ui:NavigationViewItem.Icon>
+                        <ToolTipService.ToolTip>
+                            <ToolTip x:Name="ItemHojeToolTip" Content="{DynamicResource btnTarefasHojeName}" Visibility="Collapsed" Foreground="{DynamicResource TextoPrincipal}"/>
+                        </ToolTipService.ToolTip>
+                    </ui:NavigationViewItem>
+                    <ui:NavigationViewItem Content="{DynamicResource btnTarefasEstaSemanaName}" FontWeight="Bold" Click="btnTarefasEstaSemana_Click">
+                        <ui:NavigationViewItem.Icon>
+                            <ui:ImageIcon Source="{DynamicResource IconSemana}" Width="28" Height="28" RenderOptions.BitmapScalingMode="Fant"/>
+                        </ui:NavigationViewItem.Icon>
+                        <ToolTipService.ToolTip>
+                            <ToolTip x:Name="ItemEstaSemanaToolTip" Content="{DynamicResource btnTarefasEstaSemanaName}" Visibility="Collapsed" Foreground="{DynamicResource TextoPrincipal}"/>
+                        </ToolTipService.ToolTip>
+                    </ui:NavigationViewItem>
+                    <ui:NavigationViewItemSeparator Height="0"/>
+                    <ui:NavigationViewItem Content="{DynamicResource btnTarefasPoucoImportanteName}" FontWeight="Bold" Click="btnTarefasPoucoImportantes_Click">
+                        <ui:NavigationViewItem.Icon>
+                            <ui:ImageIcon Source="{DynamicResource IconPoucoImportante}" Width="29" Height="29" RenderOptions.BitmapScalingMode="Fant"/>
+                        </ui:NavigationViewItem.Icon>
+                        <ToolTipService.ToolTip>
+                            <ToolTip x:Name="ItemPImportanteToolTip" Content="{DynamicResource btnTarefasPoucoImportanteName}" Visibility="Collapsed" Foreground="{DynamicResource TextoPrincipal}"/>
+                        </ToolTipService.ToolTip>
+                    </ui:NavigationViewItem>
+                    <ui:NavigationViewItemSeparator Height="0"/>
+                    <ui:NavigationViewItem Content="{DynamicResource btnTarefasNormalName}" FontWeight="Bold" Click="btnTarefasNormais_Click">
+                        <ui:NavigationViewItem.Icon>
+                            <ui:ImageIcon Source="{DynamicResource IconNormal}" Width="34" Height="34" RenderOptions.BitmapScalingMode="Fant"/>
+                        </ui:NavigationViewItem.Icon>
+                        <ToolTipService.ToolTip>
+                            <ToolTip x:Name="ItemNormalToolTip" Content="{DynamicResource btnTarefasNormalName}" Visibility="Collapsed" Foreground="{DynamicResource TextoPrincipal}"/>
+                        </ToolTipService.ToolTip>
+                    </ui:NavigationViewItem>
+                    <ui:NavigationViewItemSeparator Height="0"/>
+                    <ui:NavigationViewItem Content="{DynamicResource btnTarefasImportanteName}" FontWeight="Bold" Click="btnTarefasImportantes_Click">
+                        <ui:NavigationViewItem.Icon>
+                            <ui:ImageIcon Source="{DynamicResource IconImportante}" Width="34" Height="34" RenderOptions.BitmapScalingMode="Fant"/>
+                        </ui:NavigationViewItem.Icon>
+                        <ToolTipService.ToolTip>
+                            <ToolTip x:Name="ItemImportanteToolTip" Content="{DynamicResource btnTarefasImportanteName}" Visibility="Collapsed" Foreground="{DynamicResource TextoPrincipal}"/>
+                        </ToolTipService.ToolTip>
+                    </ui:NavigationViewItem>
+                    <ui:NavigationViewItemSeparator Height="0"/>
+                    <ui:NavigationViewItem Content="{DynamicResource btnTarefasPrioritariaName}" FontWeight="Bold" Click="btnTarefasPrioritarias_Click">
+                        <ui:NavigationViewItem.Icon>
+                            <ui:ImageIcon Source="{DynamicResource IconPrioritaria}" Width="34" Height="34" RenderOptions.BitmapScalingMode="Fant"/>
+                        </ui:NavigationViewItem.Icon>
+                        <ToolTipService.ToolTip>
+                            <ToolTip x:Name="ItemPrioritariaToolTip" Content="{DynamicResource btnTarefasPrioritariaName}" Visibility="Collapsed" Foreground="{DynamicResource TextoPrincipal}"/>
+                        </ToolTipService.ToolTip>
+                    </ui:NavigationViewItem>
+                    <ui:NavigationViewItemSeparator Height="0"/>
+                    <ui:NavigationViewItemSeparator />
+                </ui:NavigationView.MenuItems>
+                <ui:NavigationView.PaneFooter>
+                    <StackPanel Name="stckPaneFooter" Orientation="Horizontal" Margin="1,0,0,0">
+                        <!-- Botão Personalizado -->
+                        <Viewbox>
+                            <ui:Button Name="btnAdicionarListaSemTextoPersonalizado" Margin="2,10,0,10" Height="35" Width="35"
+                                   CornerRadius="30" Padding="5" HorizontalAlignment="Center" VerticalAlignment="Center" Icon="{ui:FontIcon '+'}" FontSize="25" Click="BtnAdicionarListaSemTextoPersonalizado_OnClick" >
+                                <ui:Button.ToolTip>
+                                    <ToolTip Content="{DynamicResource textBoxAddListaPersonalizadaText}" FontWeight="Bold" Foreground="{DynamicResource TextoPrincipal}"/>
+                                </ui:Button.ToolTip>
+                            </ui:Button>
+                        </Viewbox>
+                        <!-- TextBox -->
+                        <ui:TextBox x:Name="txtAdicionarLista" Text="{DynamicResource textBoxAddListaPersonalizadaText}" Margin="5,10,10,10" FontSize="15" Width="264" ClearButtonEnabled="True" GotFocus="TxtAdicionarLista_OnGotFocus" LostFocus="TxtAdicionarLista_OnLostFocus" KeyDown="TxtbAdicionarLista_KeyDown" FontFamily="Balsamiq Sans" />
+                    </StackPanel>
+                </ui:NavigationView.PaneFooter>
+            </ui:NavigationView>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="39*"/>
+                <RowDefinition Height="353*"/>
+            </Grid.RowDefinitions>
+            <ContentControl x:Name="CC" Grid.RowSpan="2"/>
+            <tb:TaskbarIcon x:Name="MyNotifyIcon"
+                    IconSource="Dados/icon1.ico"
+                    ToolTipText="ToDoList" Grid.RowSpan="2">
+                <tb:TaskbarIcon.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Name="MenuItemAbrir" Header="{DynamicResource menuItemAbrir}" Click="MenuItem_Show_Click"/>
+                        <MenuItem Name="MenuItemFechar" Header="{DynamicResource menuItemSair1}" Click="MenuItem_Exit_Click"/>
+                        <Separator/>
+                        <MenuItem Name="MenuItemModoEscuro" Header="{DynamicResource menuItemModoEscuro}" Click="DarkThemeClick"/>
+                        <MenuItem Name="MenuItemModoClaro" Header="{DynamicResource menuItemModoClaro}" Click="LightThemeClick"/>
+                    </ContextMenu>
+                </tb:TaskbarIcon.ContextMenu>
+            </tb:TaskbarIcon>
+        </Grid>
+
+    </Grid>
+</Window>

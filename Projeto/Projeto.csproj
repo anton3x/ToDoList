@@ -1,0 +1,113 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <SupportedOSPlatformVersion>10.0.22621.0</SupportedOSPlatformVersion>
+    <ApplicationIcon>Dados\icon1.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="BalsamiqSans-Regular.ttf" />
+    <None Remove="dados.xml" />
+    <None Remove="Dados\icon1.ico" />
+    <None Remove="Dados\icon2.ico" />
+    <None Remove="Dados\iconCentralAlertas2.png" />
+    <None Remove="Dados\iconHoje.png" />
+    <None Remove="Dados\iconHoje2.png" />
+    <None Remove="Dados\iconImportante.png" />
+    <None Remove="Dados\iconImportante2.png" />
+    <None Remove="Dados\iconNormal.png" />
+    <None Remove="Dados\iconNormal2.png" />
+    <None Remove="Dados\iconNovaTarefa.png" />
+    <None Remove="Dados\iconNovaTarefa2.png" />
+    <None Remove="Dados\iconPoucoImportante.png" />
+    <None Remove="Dados\iconPoucoImportante2.png" />
+    <None Remove="Dados\iconPrioritaria.png" />
+    <None Remove="Dados\iconPrioritaria2.png" />
+    <None Remove="Dados\iconSemana.png" />
+    <None Remove="Dados\iconSemana2.png" />
+    <None Remove="Dados\iconTarefasTotais.png" />
+    <None Remove="Dados\iconTarefasTotais2.png" />
+    <None Remove="Dados\noPhoto.jpg" />
+    <None Remove="Dados\notificationSound.wav" />
+    <None Remove="iconCentralAlertas.png" />
+    <None Remove="iconHoje.png" />
+    <None Remove="iconImportante.png" />
+    <None Remove="iconNormal.png" />
+    <None Remove="iconPoucoImportante.png" />
+    <None Remove="iconPrioritaria.png" />
+    <None Remove="iconTarefasTotais.png" />
+    <None Remove="imagemUser.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Dados\iconCentralAlertas2.png" />
+    <Resource Include="Dados\iconHoje2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <COMReference Include="{215d64d2-031c-33c7-96e3-61794cd1ee61}">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>4</VersionMinor>
+      <VersionMajor>2</VersionMajor>
+      <Guid>215d64d2-031c-33c7-96e3-61794cd1ee61</Guid>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Fonts\BalsamiqSans-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Dados\icon1.ico" />
+    <Resource Include="Dados\icon2.ico" />
+    <Resource Include="Dados\iconHoje.png" />
+    <Resource Include="Dados\iconImportante.png" />
+    <Resource Include="Dados\iconImportante2.png" />
+    <Resource Include="Dados\iconNormal.png" />
+    <Resource Include="Dados\iconNormal2.png" />
+    <Resource Include="Dados\iconNovaTarefa.png" />
+    <Resource Include="Dados\iconNovaTarefa2.png" />
+    <Resource Include="Dados\iconPoucoImportante.png" />
+    <Resource Include="Dados\iconPoucoImportante2.png" />
+    <Resource Include="Dados\iconPrioritaria.png" />
+    <Resource Include="Dados\iconPrioritaria2.png" />
+    <Resource Include="Dados\iconSemana.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Dados\iconSemana2.png" />
+    <Resource Include="Dados\iconTarefasTotais.png" />
+    <Resource Include="Dados\iconTarefasTotais2.png" />
+    <Resource Include="Dados\noPhoto.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Dados\iconCentralAlertas.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Dados\imagemUser.png" />
+    <Resource Include="Dados\notificationSound.wav" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\EditarTarefa.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="DotNetProjects.WpfToolkit.Input" Version="6.1.94" />
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.1" />
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.3" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.5" />
+    <PackageReference Include="System.Reactive.Windows.Forms" Version="6.0.0" />
+    <PackageReference Include="WPF-UI" Version="3.0.4" />
+  </ItemGroup>
+
+</Project>

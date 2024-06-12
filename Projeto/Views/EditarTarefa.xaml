@@ -1,0 +1,85 @@
+﻿<Window x:Class="Projeto.EditarTarefa"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projeto"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="{DynamicResource viewEditarTarefaText}" Height="750" Width="705" MinWidth="655" MaxWidth="655" MinHeight="750" MaxHeight="750">
+
+    <Grid Background="{DynamicResource BackgroundPerfilView}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical" Margin="20" HorizontalAlignment="Stretch">
+            <TextBox x:Name="txtbTitulo" Height="40" Margin="0,20,0,20" FontSize="20" Text="{Binding Titulo, Mode=OneWay}" GotFocus="TxtbTitulo_OnGotFocus" LostFocus="TxtbTitulo_OnLostFocus" FontFamily="Balsamiq Sans"/>
+            <TextBox x:Name="txtbDescricao" Height="40" Margin="0,0,0,30" FontSize="20" Text="{Binding Descricao,Mode=OneWay}" Foreground="#FF707070" GotFocus="TxtbDescricao_OnGotFocus" LostFocus="TxtbDescricao_OnLostFocus" FontFamily="Balsamiq Sans"/>
+            <StackPanel Margin="9,0,0,0" Orientation="Horizontal">
+                <TextBlock x:Name="txtBDataInicio" Text="{DynamicResource adicionarTarefaDataInicioText}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,15,0" FontSize="15" FontFamily="Balsamiq Sans" Foreground="{DynamicResource TextoPrincipal}"/>
+                <DatePicker x:Name="datePInicio"  MinWidth="135"  SelectedDate="{Binding DataInicio,Mode=OneWay}" SelectedDateChanged="DatePInicio_OnSelectedDateChanged" FontFamily="Balsamiq Sans" SelectedDateFormat="Short"  Margin="15,0,0,0"/>
+                <TextBlock x:Name="txtBHoraInicio"  Text="{DynamicResource adicionarTarefaHoraInicioText}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="30,0,15,0" FontSize="15" FontFamily="Balsamiq Sans" Foreground="{DynamicResource TextoPrincipal}"/>
+                <xctk:TimePicker x:Name="timePickerHoraInicio"  Width="80" Text="{Binding DataInicio, StringFormat={}{0:HH:mm},Mode=OneWay}" ValueChanged="TimePickerHoraInicio_OnValueChanged" FontFamily="Balsamiq Sans"  Foreground="{DynamicResource TextoPrincipal}" Background="{DynamicResource TimePickers}" Loaded="TimePickerHoraInicio_OnLoaded"/>
+            </StackPanel>
+            <StackPanel Margin="9,15,0,0" Orientation="Horizontal">
+                <TextBlock x:Name="txtBDataFim" Text="{DynamicResource adicionarTarefaDataTerminoText}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,15,0" FontSize="15" FontFamily="Balsamiq Sans" Foreground="{DynamicResource TextoPrincipal}"/>
+                <DatePicker x:Name="datePFim" MinWidth="135"  SelectedDate="{Binding DataFim,Mode=OneWay}" SelectedDateChanged="DatePFim_OnSelectedDateChanged" FontFamily="Balsamiq Sans" SelectedDateFormat="Short"/>
+                <TextBlock x:Name="txtBHoraFim"  Text="{DynamicResource adicionarTarefaHoraFimText}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="30,0,15,0" FontSize="15" FontFamily="Balsamiq Sans" Foreground="{DynamicResource TextoPrincipal}"/>
+                <xctk:TimePicker  x:Name="timePickerHoraFim"  Width="80" Text="{Binding DataFim, StringFormat={}{0:HH:mm}, Mode=OneWay}" ValueChanged="TimePickerHoraFim_OnValueChanged" FontFamily="Balsamiq Sans" Background="{DynamicResource TimePickers}" Foreground="{DynamicResource TextoPrincipal}" Loaded="TimePickerHoraFim_OnLoaded" Margin="15,0,0,0"/>
+            </StackPanel>
+            <StackPanel Margin="9,15,0,0" Orientation="Horizontal">
+                <TextBlock x:Name="txtBImportancia" Text="{DynamicResource adicionarTarefaImportanciaText}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,15,0" FontSize="15" FontFamily="Balsamiq Sans" Foreground="{DynamicResource TextoPrincipal}"/>
+                <ComboBox  x:Name="comboBPrioridades" SelectedIndex="{Binding NivelImportanciaInt, Mode=OneWay}" SelectionChanged="ComboBPrioridades_OnSelectionChanged" FontFamily="Balsamiq Sans">
+                    <ComboBoxItem Content="{DynamicResource adicionarTarefaComboBoxImportanciaPI}"/>
+                    <ComboBoxItem Content="{DynamicResource adicionarTarefaComboBoxImportanciaNormal}"/>
+                    <ComboBoxItem Content="{DynamicResource adicionarTarefaComboBoxImportanciaImporante}"/>
+                    <ComboBoxItem Content="{DynamicResource adicionarTarefaComboBoxImportanciaPrioritaria}"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Margin="9,15,0,0" Orientation="Horizontal">
+                <TextBlock x:Name="txtBRepeticao" Text="{DynamicResource adicionarTarefaRepetirTarefa}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,15,0" FontSize="15" FontFamily="Balsamiq Sans" Foreground="{DynamicResource TextoPrincipal}"/>
+                <ToggleButton x:Name="toggleBtnRepetir" IsEnabled="False" Width="40"  Height="20" Checked="ToggleBtnRepetir_OnChecked" Unchecked="ToggleBtnRepetir_OnUnchecked" Loaded="ToggleBtnRepetir_OnLoaded"/>
+                <TextBlock x:Name="estadoToggleBtnRepetir" Text="OFF" VerticalAlignment="Center"  Margin="10,0,5,0" FontSize="15" Foreground="Red" Loaded="EstadoToggleBtnRepetir_OnLoaded" FontFamily="Balsamiq Sans"/>
+            </StackPanel>
+            <StackPanel x:Name="stackPanelDias" Margin="0,5,0,0" Orientation="Horizontal" IsEnabled="False" HorizontalAlignment="Center">
+                <ToggleButton x:Name="btnSegunda" Content="{DynamicResource adicionarTarefaDiaSemanaSegunda}" Width="83" Height="33" Margin="1,0,2,0" Unchecked="BtnOnUnChecked" Checked="BtnOnChecked" FontFamily="Balsamiq Sans"/>
+                <ToggleButton x:Name="btnTerca" Content="{DynamicResource adicionarTarefaDiaSemanaTerca}" Width="80" Height="33" Margin="0,0,2,0" Unchecked="BtnOnUnChecked" Checked="BtnOnChecked" FontFamily="Balsamiq Sans"/>
+                <ToggleButton x:Name="btnQuarta" Content="{DynamicResource adicionarTarefaDiaSemanaQuarta}" Width="98" Height="33" Margin="0,0,2,0" Unchecked="BtnOnUnChecked" Checked="BtnOnChecked" FontFamily="Balsamiq Sans"/>
+                <ToggleButton x:Name="btnQuinta" Content="{DynamicResource adicionarTarefaDiaSemanaQuinta}" Width="82" Height="33" Margin="0,0,2,0" Unchecked="BtnOnUnChecked" Checked="BtnOnChecked" FontFamily="Balsamiq Sans"/>
+                <ToggleButton x:Name="btnSexta" Content="{DynamicResource adicionarTarefaDiaSemanaSexta}" Width="80" Height="33" Margin="0,0,2,0" Unchecked="BtnOnUnChecked" Checked="BtnOnChecked" FontFamily="Balsamiq Sans"/>
+                <ToggleButton x:Name="btnSabado" Content="{DynamicResource adicionarTarefaDiaSemanaSabado}" Width="82" Height="33" Margin="0,0,2,0" Unchecked="BtnOnUnChecked" Checked="BtnOnChecked" FontFamily="Balsamiq Sans"/>
+                <ToggleButton x:Name="btnDomingo" Content="{DynamicResource adicionarTarefaDiaSemanaDomingo}" Width="82" Height="33" Margin="0,0,2,0" Unchecked="BtnOnUnChecked" Checked="BtnOnChecked" FontFamily="Balsamiq Sans"/>
+            </StackPanel>
+            <StackPanel Margin="9,15,0,0" Orientation="Horizontal">
+                <TextBlock x:Name="txtBAlertaAntecipacao" Text="{DynamicResource adicionarTarefaAlertaAntecipacao}" VerticalAlignment="Center"  Foreground="{DynamicResource TextoPrincipal}" HorizontalAlignment="Right" Margin="0,0,15,0" FontSize="15" FontFamily="Balsamiq Sans"/>
+                <ToggleButton x:Name="toggleBtnAlertaAntecipacao"  Width="40" Height="20" Checked="ToggleBtnAlertaAntecipacao_OnChecked" Unchecked="ToggleBtnAlertaAntecipacao_OnUnchecked" Loaded="ToggleBtnAlertaAntecipacao_OnLoaded"/>
+                <TextBlock x:Name="estadoToggleBtnAlertaAntecipacao" Text="OFF" VerticalAlignment="Center"  Margin="10,0,5,0" FontSize="15" Foreground="Red" FontFamily="Balsamiq Sans"/>
+                <TextBox x:Name="txtbTempoParaAlertaAntecipacao" Text="5" VerticalAlignment="Center"  Margin="10,0,0,0" FontSize="15" Width="45"  IsEnabled="False" LostFocus="TxtbTempoParaAlertaAntecipacao_OnLostFocus" FontFamily="Balsamiq Sans"/>
+                <TextBlock x:Name="minutosTempo" Text="{DynamicResource adicionarTarefaMinutos}" VerticalAlignment="Center" FontSize="15" FontFamily="Balsamiq Sans" Foreground="{DynamicResource TextoPrincipal}"/>
+
+            </StackPanel>
+            <StackPanel Margin="9,15,0,0" Orientation="Horizontal">
+                <TextBlock x:Name="txtBAlertaNaoRealizacao" Text="{DynamicResource adicionarTarefaAlertaDeNaoRealizacao}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,15,0" FontSize="15" FontFamily="Balsamiq Sans" Foreground="{DynamicResource TextoPrincipal}"/>
+                <ToggleButton x:Name="toggleBtnAlertaNaoRealizacao"  Width="40" Height="20"  Checked="ToggleBtnAlertaNaoRealizacao_OnChecked" Unchecked="ToggleBtnAlertaNaoRealizacao_OnUnchecked" Loaded="ToggleBtnAlertaNaoRealizacao_OnLoaded"/>
+                <TextBlock x:Name="estadoToggleBtnAlertaNaoRealizacao" Text="OFF" VerticalAlignment="Center"  Margin="10,0,5,0" FontSize="15" Foreground="Red" FontFamily="Balsamiq Sans" />
+            </StackPanel>
+            <TextBlock x:Name="txtBAlertasAntecipacao" Text="{DynamicResource adicionarTarefaTiposAlertasAntecipacao}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="9,15,15,0" FontSize="15" FontFamily="Balsamiq Sans" Foreground="{DynamicResource TextoPrincipal}"/>
+            <StackPanel x:Name="stackPanelTiposAlertaAntecipacao" Margin="2,5,0,0" Orientation="Horizontal" IsEnabled="False">
+                <ToggleButton x:Name="btnEmailAntecipacao" Content="Email" Width="61" Height="30" Margin="0,0,5,0" Unchecked="BtnEmailAntecipacao_OnUnchecked" FontFamily="Balsamiq Sans"/>
+                <ToggleButton x:Name="btnWindowsAntecipacao" Content="Windows" Width="81" Height="30" Margin="0,0,5,0" Unchecked="BtnWindowsAntecipacao_OnUnchecked" FontFamily="Balsamiq Sans"/>
+            </StackPanel>
+            <TextBlock x:Name="txtBAlertasNaoRealizacao" Text="{DynamicResource adicionarTarefaTiposAlertasNaoRealizacao}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="9,15,15,0" FontSize="15" FontFamily="Balsamiq Sans" Foreground="{DynamicResource TextoPrincipal}"/>
+            <StackPanel x:Name="stackPanelTiposNaoRealizacao" Margin="2,5,0,0" Orientation="Horizontal" IsEnabled="False">
+                <ToggleButton x:Name="btnEmailNaoRealizacao" Content="Email" Width="61" Height="30" Margin="0,0,5,0" Unchecked="BtnEmailNaoRealizacao_OnUnchecked" FontFamily="Balsamiq Sans"/>
+                <ToggleButton x:Name="btnWindowsNaoRealizacao" Content="Windows" Width="80" Height="30" Margin="0,0,5,0" Unchecked="BtnWindowsNaoRealizacao_OnUnchecked" FontFamily="Balsamiq Sans"/>
+            </StackPanel>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button x:Name="btnCancelar" Width="90" Height="40" Content="{DynamicResource adicionarTarefaCancelar}"  FontWeight="Bold"  FontSize="20" Margin="10,10,0,10" Click="btnCancelar_Click" FontFamily="Balsamiq Sans" />
+                <Button x:Name="btnEditar" Width="90" Height="40" Content="{DynamicResource editarTarefaEditar}" FontStyle="Normal" FontWeight="Bold" Margin="10,10,20,10" Click="btnEditar_Click" FontFamily="Balsamiq Sans"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

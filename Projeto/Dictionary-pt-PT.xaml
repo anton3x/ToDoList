@@ -1,0 +1,190 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:System="clr-namespace:System;assembly=System.Runtime">
+
+
+    <System:String x:Key="viewAddTarefaText">Adicionar Tarefa</System:String>
+    <System:String x:Key="viewCentralAlertasText">Central de Alertas</System:String>
+    <System:String x:Key="viewEditarAlertaText">Editar Alerta</System:String>
+    <System:String x:Key="viewEditarTarefaText">Editar Tarefa</System:String>
+    <System:String x:Key="viewPerfilText">Perfil</System:String>
+    <System:String x:Key="viewDiasTarefaCheckedText">Dias da Tarefa</System:String>
+    <System:String x:Key="textBoxAddTarefaText">Adicionar uma tarefa</System:String>
+    <System:String x:Key="profileConfigurationsToolTipText">Configurações de Perfil</System:String>
+
+
+
+
+    <System:String x:Key="language">pt-PT</System:String>
+    <System:String x:Key="buttonTarefasName">Tarefas</System:String>
+    <System:String x:Key="buttonTarefaName">Tarefas</System:String>
+
+    <System:String x:Key="btnTarefasHojeName">Hoje</System:String>
+    <System:String x:Key="btnTarefasEstaSemanaName">Esta Semana</System:String>
+    <System:String x:Key="btnTarefasPoucoImportanteName">Pouco Importante</System:String>
+    <System:String x:Key="btnTarefasNormalName">Normal</System:String>
+    <System:String x:Key="btnTarefasImportanteName">Importante</System:String>
+    <System:String x:Key="btnTarefasPrioritariaName">Prioritaria</System:String>
+    <System:String x:Key="textBoxAddListaPersonalizadaText">Adicionar nova lista</System:String>
+    <System:String x:Key="editarPerfilNome">Nome:</System:String>
+    <System:String x:Key="AlertasVoltar">Voltar</System:String>
+    <System:String x:Key="adicionarTarefaTItuloText">Adicionar um titulo</System:String>
+    <System:String x:Key="editarPerfilFotografia">Fotografia:</System:String>
+    <System:String x:Key="editarPerfilButaoCancelarText">Cancelar</System:String>
+    <System:String x:Key="editarPerfilButaoAtualizarText">Atualizar</System:String>
+    <System:String x:Key="editarPerfilFileDialogContent">Procurar...</System:String>
+    <System:String x:Key="EditarAlertaDataAlerta">Data do alerta</System:String>
+    <System:String x:Key="textBoxDatasAteText">Até</System:String>
+    <System:String x:Key="adicionarTarefaDescricaoText">Adicionar uma descrição</System:String>
+    <System:String x:Key="AlertasText">Alertas</System:String>
+    <System:String x:Key="adicionarTarefaDataInicioText">Data de inicio</System:String>
+    <System:String x:Key="EditarAlertaHoraAlerta">Hora do alerta</System:String>
+    <System:String x:Key="adicionarTarefaHoraInicioText">Hora de inicio</System:String>
+    <System:String x:Key="adicionarTarefaDataTerminoText">Data de termino</System:String>
+    <System:String x:Key="adicionarTarefaHoraFimText">Hora de fim</System:String>
+    <System:String x:Key="adicionarTarefaImportanciaText">Importância</System:String>
+    <System:String x:Key="adicionarTarefaComboBoxImportanciaPI">Pouco Importante</System:String>
+    <System:String x:Key="txtAlerta" xml:space="preserve">Alerta </System:String>
+    <System:String x:Key="adicionarTarefaComboBoxImportanciaNormal">Normal</System:String>
+    <System:String x:Key="EditarAlertaEstado">Estado</System:String>
+    <System:String x:Key="adicionarTarefaComboBoxImportanciaImporante">Importante</System:String>
+    <System:String x:Key="adicionarTarefaComboBoxImportanciaPrioritaria">Prioritaria</System:String>
+    <System:String x:Key="adicionarTarefaRepetirTarefa">Repetir Tarefa</System:String>
+    <System:String x:Key="adicionarTarefaDiaSemanaSegunda">Segunda</System:String>
+    <System:String x:Key="adicionarTarefaDiaSemanaTerca">Terca</System:String>
+    <System:String x:Key="adicionarTarefaDiaSemanaQuarta">Quarta</System:String>
+    <System:String x:Key="EditarAlertaTiposAlerta">Tipos do alerta</System:String>
+    <System:String x:Key="adicionarTarefaDiaSemanaQuinta">Quinta</System:String>
+    <System:String x:Key="adicionarTarefaDiaSemanaSexta">Sexta</System:String>
+    <System:String x:Key="adicionarTarefaDiaSemanaSabado">Sabado</System:String>
+    <System:String x:Key="adicionarTarefaDiaSemanaDomingo">Domingo</System:String>
+    <System:String x:Key="adicionarTarefaAlertaAntecipacao">Alertas de antecipação</System:String>
+    <System:String x:Key="adicionarTarefaMinutos" xml:space="preserve"> min</System:String>
+    <System:String x:Key="adicionarTarefaAlertaDeNaoRealizacao">Alertas de não realização</System:String>
+    <System:String x:Key="adicionarTarefaTiposAlertasAntecipacao">Tipo de alertas de antecipação</System:String>
+    <System:String x:Key="EditarAlertaCancelar">Cancelar</System:String>
+    <System:String x:Key="perfilViewIngles">Inglês</System:String>
+    <System:String x:Key="adicionarTarefaTiposAlertasNaoRealizacao">Tipo de alertas de não realização</System:String>
+    <System:String x:Key="EditarAlertaEditar">Editar</System:String>
+    <System:String x:Key="adicionarTarefaCancelar">Cancelar</System:String>
+    <System:String x:Key="adicionarTarefaAdicionar">Adicionar</System:String>
+    <System:String x:Key="editarTarefaEditar">Editar</System:String>
+    <System:String x:Key="ExibirListaTarefaHoje">Hoje</System:String>
+    <System:String x:Key="ExibirListaTarefaEstaSemana">Esta Semana</System:String>
+    <System:String x:Key="ExibirListaTarefaEntreDatas">Entre datas</System:String>
+    <System:String x:Key="estadoTarefaInfo">Estado da Tarefa:</System:String>
+    <System:String x:Key="estadoTarefaCinzento">Cinzento - Por Começar</System:String>
+    <System:String x:Key="estadoTarefaLaranja">Laranja - Em Execução</System:String>
+    <System:String x:Key="estadoTarefaVerde">Verde - Terminada</System:String>
+    <System:String x:Key="tooltipEliminarTarefa">Eliminar Tarefa</System:String>
+    <System:String x:Key="tooltipConfiguracoesTarefa">Configurações da Tarefa</System:String>
+    <System:String x:Key="tooltipCentralAlertasTarefa">Central de Alertas</System:String>
+    <System:String x:Key="tooltipEliminarAlerta">Eliminar o Alerta</System:String>
+    <System:String x:Key="tooltipConfiguracoesAlerta">Configurações do Alerta</System:String>
+    <System:String x:Key="tarefaDesignAntecipacao">Antecipação</System:String>
+    <System:String x:Key="tarefaDesignNaoRealizacao">Não Realização</System:String>
+    <System:String x:Key="Linguagem">Linguagem:</System:String>
+    <System:String x:Key="perfilViewInglesLingua">Inglês</System:String>
+    <System:String x:Key="perfilViewPortuguesLingua">Português</System:String>
+    <System:String x:Key="perfilViewEspanholLingua">Espanhol</System:String>
+    <System:String x:Key="perfilViewFrancesLingua">Francês</System:String>
+    <System:String x:Key="perfilViewAlemaoLingua">Alemão</System:String>
+    <System:String x:Key="perfilViewItalianoLingua">Italiano</System:String>
+    <System:String x:Key="menuItemAbrir">Abrir</System:String>
+    <System:String x:Key="menuItemSair1">Fechar</System:String>
+    <System:String x:Key="menuItemModoEscuro">Modo Escuro</System:String>
+    <System:String x:Key="menuItemModoClaro">Modo Claro</System:String>
+    <System:String x:Key="alertaAntecipacao">Alerta de Antecipação</System:String>
+    <System:String x:Key="alertaNaoRealizacao">Alerta de Não Realização</System:String>
+    <System:String x:Key="WindowsNotificationsTitle">Notificações Windows</System:String>
+    <System:String x:Key="WindowsNotificationsContent">Ativa as notificações nas configurações do windows para poderes receber alertas!!!</System:String>
+    <System:String x:Key="WindowsNotificationsPrimaryButtonText">Ativar</System:String>
+    <System:String x:Key="WindowsNotificationsCloseButtonText">Fechar</System:String>
+
+    <System:String x:Key="ErrorExistingButtonTitle">Erro</System:String>
+    <System:String x:Key="ErrorExistingButtonContent">Já existe um botão com esse nome!</System:String>
+    <System:String x:Key="ErroTarefaJaConcluida">Não é possível editar uma tarefa que já foi concluída!!!</System:String>
+
+    <System:String x:Key="ErrorExistingButtonCloseButtonText">OK</System:String>
+
+    <!-- Erro nome botão não permitido -->
+    <System:String x:Key="ErrorButtonNameNotAllowedTitle">Erro</System:String>
+    <System:String x:Key="ErrorButtonNameNotAllowedContent">Não é possível criar um botão com esse nome!!!</System:String>
+    <System:String x:Key="ErrorButtonNameNotAllowedCloseButtonText">OK</System:String>
+    <!-- Outros Alertas -->
+    <System:String x:Key="AlertasTitle">Alertas</System:String>
+    <System:String x:Key="AlertaTitle">Alerta</System:String>
+    <System:String x:Key="AlertasContent">É necessário existir pelo menos um alerta!!!</System:String>
+    <System:String x:Key="AlertaContent">Alerta editado com sucesso!!!</System:String>
+    <System:String x:Key="AlertasCloseButtonText">OK</System:String>
+
+    <!-- Erro Datas -->
+    <System:String x:Key="DatasTitle">Datas</System:String>
+    <System:String x:Key="DatasContentInicioMaiorFim">A data de início não pode ser maior que a data de fim!!!</System:String>
+    <System:String x:Key="DatasContentInicioMenorHoje">A data de início não pode ser menor que a data de hoje!!!</System:String>
+    <System:String x:Key="DatasContentFimMenorInicio">A data de fim não pode ser menor que a data de início!!!</System:String>
+    <System:String x:Key="DatasErroVaziaInicio">A data de início não pode estar vazia!!!</System:String>
+    <System:String x:Key="DatasIntervaloEscolhidoErro">O intervalo de datas selecionado não contém o dia da semana escolhido!!!</System:String>
+
+    <!-- Erro Horas -->
+    <System:String x:Key="HorasTitle">Horas</System:String>
+    <System:String x:Key="HorasContentInicioMaiorIgualFim">A hora de início não pode ser maior ou igual à hora de fim!!!</System:String>
+    <System:String x:Key="HorasContentFimMenorIgualInicio">A hora de fim não pode ser menor ou igual à hora de início!!!</System:String>
+
+    <!-- Outros Erros -->
+    <System:String x:Key="ErroTempoAntecipacaoTitle">Erro</System:String>
+    <System:String x:Key="ErroTempoAntecipacaoContentInteiro">O tempo para o alerta de antecipação tem de ser um número inteiro!!!</System:String>
+    <System:String x:Key="ErroTempoAntecipacaoContentPositivo">O tempo para o alerta de antecipação tem de ser um número inteiro positivo!!!</System:String>
+
+    <!-- Escolha de Dia -->
+    <System:String x:Key="EscolheDiaTitle">Escolhe pelo menos um dia</System:String>
+    <System:String x:Key="EscolheDiaContent">É necessário existir pelo menos um dia ativo!!!</System:String>
+
+    <!-- Eliminar lista personalizada -->
+    <System:String x:Key="EliminarListaPersonalizadaTitle">Eliminar lista personalizada</System:String>
+    <System:String x:Key="EliminarListaPersonalizadaContent">Tem a certeza que deseja remover a lista?</System:String>
+    <System:String x:Key="EliminarListaPersonalizadaPrimaryButtonText">Sim</System:String>
+    <System:String x:Key="EliminarListaPersonalizadaCloseButtonText">Não</System:String>
+    <System:String x:Key="PreenchaTodosOsCampos">Preencha todos os campos!!!</System:String>
+    <System:String x:Key="NomeMuitoGrande">Nome muito grande!!!</System:String>
+    <System:String x:Key="ErroCarregarImagem">Erro ao carregar a imagem!!!</System:String>
+    <System:String x:Key="Atualizacao">Atualizacao</System:String>
+    <System:String x:Key="AtualizacaoBemSucedida">Atualizacao de perfil bem sucedida!!!</System:String>
+    <System:String x:Key="ImagensFilter">Imagens</System:String>
+    <System:String x:Key="EmailInvalido">Email Invalido</System:String>
+    <System:String x:Key="ErroEnvioEmail">Houve um erro no envio do email!</System:String>
+
+
+
+    <System:String x:Key="TarefaDataHora">Data e Hora: </System:String>
+    <System:String x:Key="TarefaExcedeuTempo">Você excedeu o tempo programado para a conclusão da tarefa.</System:String>
+    <System:String x:Key="TarefaComecarEm">A tarefa irá começar a</System:String>
+    <System:String x:Key="AbrirToDoList">Abrir ToDoList</System:String>
+    <System:String x:Key="FinalizarTarefa">Finalizar Tarefa</System:String>
+
+
+
+    <System:String x:Key="Notificacao1A">Aviso de Antecipação</System:String>
+    <System:String x:Key="Notificacao2A">Atenção,</System:String>
+    <System:String x:Key="Notificacao3A">Este é um aviso automático enviado pelo</System:String>
+    <System:String x:Key="Notificacao4A">, da sua aplicação</System:String>
+    <System:String x:Key="Notificacao5A">A Tarefa</System:String>
+    <System:String x:Key="Notificacao6A">irá começar a</System:String>
+    <System:String x:Key="Notificacao7A">Fique atento à data e hora de início da Tarefa</System:String>
+    <System:String x:Key="Notificacao8A">para garantir que esteja pronto para começar no horário especificado.</System:String>
+    <System:String x:Key="Notificacao9A">Se precisar de ajuda ou tiver alguma dúvida, não hesite em entrar em contato conosco.</System:String>
+    <System:String x:Key="Notificacao10A">Atenciosamente,</System:String>
+
+
+    <System:String x:Key="Notificacao1R">Aviso de Não Realização</System:String>
+    <System:String x:Key="Notificacao2R">Atenção,</System:String>
+    <System:String x:Key="Notificacao3R">Este é um aviso automático enviado pelo</System:String>
+    <System:String x:Key="Notificacao4R">, da sua aplicação</System:String>
+    <System:String x:Key="Notificacao5R">A Tarefa</System:String>
+    <System:String x:Key="Notificacao6R">excedeu o tempo programado para sua a conclusão.</System:String>
+    <System:String x:Key="Notificacao7R">Por favor, tome as medidas necessárias para concluir esta tarefa o mais rápido possível ou ajuste o prazo, se necessário.</System:String>
+    <System:String x:Key="Notificacao8R">Se precisar de ajuda ou tiver alguma dúvida, não hesite em entrar em contato conosco.</System:String>
+    <System:String x:Key="Notificacao9R">Atenciosamente,</System:String>
+
+
+</ResourceDictionary>

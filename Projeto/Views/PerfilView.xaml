@@ -1,0 +1,100 @@
+﻿<Window x:Class="Projeto.Views.PerfilView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:local="clr-namespace:Projeto.Views"
+        mc:Ignorable="d"
+        Closing="PerfilView_OnClosing"
+        Title="{DynamicResource viewPerfilText}" Height="450" Width="700" MinWidth="700" MinHeight="450" MaxHeight="450" MaxWidth="700 "
+    xmlns:System="clr-namespace:System;assembly=System.Runtime">
+
+    <Window.Resources>
+        <System:String x:Key="perfilViewPortugues">Português</System:String>
+    </Window.Resources>
+
+    <Grid Background="{DynamicResource BackgroundPerfilView}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="43*"/>
+            <ColumnDefinition Width="409*"/>
+            <ColumnDefinition Width="248*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,248,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Vertical" VerticalAlignment="Center">
+                <Grid Margin="30,10,30,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".5*" />
+                        <ColumnDefinition Width=".1*"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ui:TextBlock Grid.Column="0" Text="{DynamicResource editarPerfilNome}" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Balsamiq Sans" Foreground="{DynamicResource TextoPrincipal}"/>
+                    <ui:TextBox Name="txtbNome" Grid.Column="2" FontSize="25" HorizontalAlignment="Stretch" VerticalAlignment="Center" LostFocus="txtbNome_LostFocus" FontFamily="Balsamiq Sans" />
+                </Grid>
+                <Grid Margin="30,10,30,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".5*"/>
+                        <ColumnDefinition Width=".1*"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ui:TextBlock Grid.Column="0" Text="Email:" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Balsamiq Sans" Foreground="{DynamicResource TextoPrincipal}"/>
+                    <ui:TextBox Name="txtbEmail" Grid.Column="2" FontSize="25" HorizontalAlignment="Stretch" VerticalAlignment="Center" LostFocus="txtbEmail_LostFocus" FontFamily="Balsamiq Sans"/>
+                </Grid>
+                <Grid Margin="30,10,30,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".5*" />
+                        <ColumnDefinition Width=".1*"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ui:TextBlock Grid.Column="0" Text="{DynamicResource editarPerfilFotografia}" FontSize="19" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Balsamiq Sans" Foreground="{DynamicResource TextoPrincipal}" />
+                    <ui:Button Grid.Column="2" Content="{DynamicResource editarPerfilFileDialogContent}" FontSize="25" HorizontalAlignment="Stretch" Click="Button_Click" FontFamily="Balsamiq Sans" />
+                </Grid>
+                <Grid Margin="30,10,30,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".5*" />
+                        <ColumnDefinition Width=".1*"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ui:TextBlock Name="txtBFotografia" Grid.Column="0" Text="{DynamicResource Linguagem}" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Balsamiq Sans" Foreground="{DynamicResource TextoPrincipal}" />
+                    <ComboBox x:Name="languageComboBox" Grid.Column="2" FontSize="20" HorizontalAlignment="Stretch" VerticalAlignment="Center" Loaded="LanguageComboBox_OnLoaded" FontFamily="Balsamiq Sans">
+                        <ComboBoxItem Content="{DynamicResource perfilViewPortuguesLingua}" Tag="pt-PT" FontFamily="Balsamiq Sans" />
+                        <ComboBoxItem Content="{DynamicResource perfilViewInglesLingua}" Tag="en-US" FontFamily="Balsamiq Sans"/>
+                        <ComboBoxItem Content="{DynamicResource perfilViewEspanholLingua}" Tag="es-ES" FontFamily="Balsamiq Sans"/>
+                        <ComboBoxItem Content="{DynamicResource perfilViewFrancesLingua}" Tag="fr-FR" FontFamily="Balsamiq Sans"/>
+                        <ComboBoxItem Content="{DynamicResource perfilViewAlemaoLingua}" Tag="de-DE" FontFamily="Balsamiq Sans" />
+                        <ComboBoxItem Content="{DynamicResource perfilViewItalianoLingua}" Tag="it-IT" FontFamily="Balsamiq Sans"/>
+                    </ComboBox>
+                </Grid>
+            </StackPanel>
+            <Grid Grid.Row="1" Margin="40,20,0,20" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width=".1*"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <ui:Button Grid.Column="0" Content="{DynamicResource editarPerfilButaoCancelarText}" FontSize="40" FontWeight="Bold" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="Button_Click_2" FontFamily="Balsamiq Sans" />
+                <ui:Button Grid.Column="2" Content="{DynamicResource editarPerfilButaoAtualizarText}" FontSize="40" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Stretch" Click="Button_Click_1" FontFamily="Balsamiq Sans" />
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="2" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".1*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height=".6*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+                <Border Width="200" Height="200" BorderBrush="{DynamicResource TextoPrincipal}" BorderThickness="3" CornerRadius="5">
+                    <Grid Grid.Row="1">
+                        <Image Name="imagePerfilTemp" Width="200" Height="200"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Source="../Dados/noPhoto.jpg"/>
+                    </Grid>
+                </Border>
+            </Grid>
+
+        </Grid>
+    </Grid>
+
+</Window>

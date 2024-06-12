@@ -1,0 +1,100 @@
+﻿<UserControl x:Class="Projeto.DiaTarefaDesign"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Projeto"
+             mc:Ignorable="d"
+             Loaded="UserControl_Loaded"
+             d:DesignHeight="70" d:DesignWidth="250">
+    <UserControl.Resources>
+        <ControlTemplate TargetType="RadioButton" x:Key="CustomRadioButtonStyle"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mwt="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero">
+
+            <BulletDecorator Background="#00FFFFFF">
+                <BulletDecorator.Bullet>
+                    <mwt:BulletChrome Height="100" Width="100" Background="{TemplateBinding Panel.Background}" BorderBrush="{TemplateBinding Border.BorderBrush}" RenderMouseOver="{TemplateBinding UIElement.IsMouseOver}" RenderPressed="{TemplateBinding ButtonBase.IsPressed}" IsChecked="{TemplateBinding ToggleButton.IsChecked}" IsRound="True"  />
+                </BulletDecorator.Bullet>
+                <ContentPresenter RecognizesAccessKey="True" Content="{TemplateBinding ContentControl.Content}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}" Margin="{TemplateBinding Control.Padding}" HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" />
+            </BulletDecorator>
+
+            <ControlTemplate.Triggers>
+
+                <Trigger Property="ContentControl.HasContent">
+
+                    <Setter Property="FrameworkElement.FocusVisualStyle">
+
+                        <Setter.Value>
+
+                            <Style TargetType="IFrameworkInputElement">
+
+                                <Style.Resources>
+                                    <ResourceDictionary />
+                                </Style.Resources>
+
+                                <Setter Property="Control.Template">
+
+                                    <Setter.Value>
+
+                                        <ControlTemplate>
+                                            <Rectangle Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2" Margin="14,0,0,0" SnapsToDevicePixels="True" />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Setter.Value>
+                    </Setter>
+
+                    <Setter Property="Control.Padding">
+
+                        <Setter.Value>
+                            <Thickness>4,0,0,0</Thickness>
+                        </Setter.Value>
+                    </Setter>
+
+                    <Trigger.Value>
+                        <s:Boolean>True</s:Boolean>
+                    </Trigger.Value>
+                </Trigger>
+
+                <Trigger Property="UIElement.IsEnabled">
+
+                    <Setter Property="TextElement.Foreground">
+
+                        <Setter.Value>
+                            <DynamicResource ResourceKey="{x:Static SystemColors.GrayTextBrushKey}" />
+                        </Setter.Value>
+                    </Setter>
+
+                    <Trigger.Value>
+                        <s:Boolean>False</s:Boolean>
+                    </Trigger.Value>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </UserControl.Resources>
+    <Grid >
+        <Border BorderBrush="{DynamicResource TextoPrincipal}" BorderThickness="1" CornerRadius="10" HorizontalAlignment="Stretch" Background="{DynamicResource Card}">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="185"/>
+                    <ColumnDefinition Width="2.6*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Viewbox Margin="10">
+                        <RadioButton Template="{StaticResource CustomRadioButtonStyle}" Click="RadioButton_Click" x:Name="btnRadio" VerticalAlignment="Center"/>
+                    </Viewbox>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="{Binding Data, StringFormat={}{0:dd/MM/yyyy}}" FontSize="21" HorizontalAlignment="Center" Foreground="{DynamicResource TextoPrincipal}" FontFamily="Balsamiq Sans"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+
+</UserControl>
