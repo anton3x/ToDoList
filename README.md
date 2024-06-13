@@ -2,7 +2,13 @@
 
 ToDoList is a comprehensive task management application that allows users to register, login, create tasks, and organize them into custom lists. This application helps users stay organized and productive by providing features like task reminders and periodic tasks.
 
-[![Watch the demo](https://youtu.be/tMeMVOtnEPg)]
+## Demo Video
+
+<div align="center">
+  <a href="https://youtu.be/tMeMVOtnEPg">
+    <img src="https://img.youtube.com/vi/VIDEO_ID/0.jpg" alt="Watch the video" style="width:100%;max-width:600px;">
+  </a>
+</div>
 
 ## Features
 
