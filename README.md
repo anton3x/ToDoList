@@ -2,7 +2,9 @@
 
 ToDoList is a comprehensive task management application that allows users to register, login, create tasks, and organize them into custom lists. This application helps users stay organized and productive by providing features like task reminders and periodic tasks.
 
-![Application](Project/Dados/app1.png)
+![Application-white_theme](Project/Dados/app1.png)
+
+![Application-black_theme](Project/Dados/app2.png)
 
 ## Features
 
